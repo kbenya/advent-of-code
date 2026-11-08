@@ -552,6 +552,8 @@ def resolve_target(p, args):
 
 
 def main() -> None:
+    # Windows consoles default to cp1252, which can't print characters like ✓.
+    sys.stdout.reconfigure(encoding="utf-8")
     load_env()
 
     parser = argparse.ArgumentParser(description="Advent of Code helper")
